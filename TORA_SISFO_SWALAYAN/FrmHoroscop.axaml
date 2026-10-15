@@ -1,0 +1,58 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="TORA_SISFO_SWALAYAN.FrmHoroscop"
+        Title="Horoscop"
+        Width="540" SizeToContent="Height"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        RequestedThemeVariant="Light"
+        Background="#F4F6FA">
+
+    <Window.Styles>
+        <Style Selector="Button">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Height" Value="36" />
+        </Style>
+    </Window.Styles>
+
+    <Border Margin="20" Background="White" CornerRadius="12" Padding="24"
+            BoxShadow="0 1 4 0 #22000000">
+        <StackPanel Spacing="16">
+            <TextBlock Text="🔮 HARI LAHIR, ZODIAC DAN NAMA BATU SESUAI ZODIAC ANDA"
+                       FontSize="16" FontWeight="Bold" Foreground="#1F3A5F"
+                       TextWrapping="Wrap" TextAlignment="Center" />
+
+            <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto" ColumnSpacing="12" RowSpacing="10">
+                <TextBlock Grid.Row="0" Text="Nama Anda:" VerticalAlignment="Center" />
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="TxtNama" />
+
+                <TextBlock Grid.Row="1" Text="Tanggal Lahir Anda:" VerticalAlignment="Center" />
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" Spacing="6">
+                    <ComboBox x:Name="CboTgl" PlaceholderText="Tgl" Width="84" />
+                    <ComboBox x:Name="CboBln" PlaceholderText="Bln" Width="84" />
+                    <ComboBox x:Name="CboThn" PlaceholderText="Thn" Width="100" />
+                </StackPanel>
+            </Grid>
+
+            <Button x:Name="BtnProses" Content="Proses" Classes="accent" Width="120"
+                    HorizontalAlignment="Center" Click="BtnProses_Click" />
+
+            <Border Background="#F4F7FB" CornerRadius="8" Padding="16">
+                <Grid ColumnDefinitions="Auto,*" RowDefinitions="Auto,Auto,Auto,Auto"
+                      ColumnSpacing="12" RowSpacing="8">
+                    <TextBlock Grid.Row="0" Grid.ColumnSpan="2" x:Name="LblSalam"
+                               FontWeight="SemiBold" Foreground="#1F3A5F" />
+
+                    <TextBlock Grid.Row="1" Text="Hari Lahir Anda:" />
+                    <TextBlock Grid.Row="1" Grid.Column="1" x:Name="LblHariLahir" FontWeight="Bold" />
+
+                    <TextBlock Grid.Row="2" Text="Zodiac Anda:" />
+                    <TextBlock Grid.Row="2" Grid.Column="1" x:Name="LblZodiac" FontWeight="Bold" />
+
+                    <TextBlock Grid.Row="3" Text="Nama Batu Zodiac Anda:" />
+                    <TextBlock Grid.Row="3" Grid.Column="1" x:Name="LblBatu" FontWeight="Bold" />
+                </Grid>
+            </Border>
+        </StackPanel>
+    </Border>
+</Window>

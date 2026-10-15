@@ -1,0 +1,143 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="TORA_SISFO_SWALAYAN.FrmTransaksi"
+        Title="Transaksi Belanja"
+        Width="860" Height="740"
+        WindowStartupLocation="CenterOwner"
+        RequestedThemeVariant="Light"
+        Background="#F4F6FA">
+
+    <Window.Styles>
+        <Style Selector="TextBlock.label">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="#4A5568" />
+        </Style>
+        <Style Selector="Border.card">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="Padding" Value="16" />
+            <Setter Property="BoxShadow" Value="0 1 4 0 #22000000" />
+        </Style>
+        <Style Selector="Border.chip">
+            <Setter Property="Background" Value="White" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Padding" Value="12,6" />
+            <Setter Property="MinWidth" Value="90" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Height" Value="36" />
+        </Style>
+    </Window.Styles>
+
+    <Grid RowDefinitions="Auto,Auto,*,Auto" Margin="20" RowSpacing="14">
+
+        <!-- Judul + hari / tanggal / jam -->
+        <Grid Grid.Row="0" ColumnDefinitions="*,Auto">
+            <StackPanel>
+                <TextBlock Text="SWALAYAN KITA SEMUA" FontSize="24" FontWeight="Bold" Foreground="#1F3A5F" />
+                <TextBlock Text="Transaksi Pembelanjaan" FontSize="14" Foreground="#6B7A90" />
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                <Border Classes="chip">
+                    <StackPanel>
+                        <TextBlock Text="Hari" FontSize="10" Foreground="#8A96A8" />
+                        <TextBlock x:Name="LblHari" FontWeight="SemiBold" />
+                    </StackPanel>
+                </Border>
+                <Border Classes="chip">
+                    <StackPanel>
+                        <TextBlock Text="Tanggal" FontSize="10" Foreground="#8A96A8" />
+                        <TextBlock x:Name="LblTgl" FontWeight="SemiBold" />
+                    </StackPanel>
+                </Border>
+                <Border Classes="chip">
+                    <StackPanel>
+                        <TextBlock Text="Jam" FontSize="10" Foreground="#8A96A8" />
+                        <TextBlock x:Name="LblJam" FontWeight="SemiBold" />
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Grid>
+
+        <!-- Input barang -->
+        <Border Grid.Row="1" Classes="card">
+            <Grid ColumnDefinitions="*,200">
+                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="130,*" RowSpacing="8">
+                    <TextBlock Grid.Row="0" Classes="label" Text="Kode Barang" />
+                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="TxtKB" Width="200"
+                             HorizontalAlignment="Left" KeyDown="TxtKB_KeyDown" />
+
+                    <TextBlock Grid.Row="1" Classes="label" Text="Nama Barang" />
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="TxtNB" IsReadOnly="True" />
+
+                    <TextBlock Grid.Row="2" Classes="label" Text="Harga Satuan" />
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="TxtHS" Width="200"
+                             HorizontalAlignment="Left" IsReadOnly="True" />
+
+                    <TextBlock Grid.Row="3" Classes="label" Text="Jumlah" />
+                    <TextBox Grid.Row="3" Grid.Column="1" x:Name="TxtJ" Width="200"
+                             HorizontalAlignment="Left" KeyDown="TxtJ_KeyDown" />
+
+                    <TextBlock Grid.Row="4" Classes="label" Text="Total Harga" />
+                    <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" Spacing="10">
+                        <TextBox x:Name="TxtTH" Width="200" IsReadOnly="True" />
+                        <Button x:Name="BtnAdd" Content="Add" Classes="accent" Width="90" Click="BtnAdd_Click" />
+                    </StackPanel>
+                </Grid>
+
+                <Border Grid.Column="1" Background="#EEF3FA" CornerRadius="10" Padding="12" Margin="12,0,0,0">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="Item Ke" Foreground="#6B7A90" HorizontalAlignment="Center" />
+                        <TextBlock x:Name="LblNoItem" Text="1" FontSize="48" FontWeight="Bold"
+                                   Foreground="#1F3A5F" HorizontalAlignment="Center" />
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Border>
+
+        <!-- Data transaksi -->
+        <Border Grid.Row="2" Classes="card">
+            <Grid RowDefinitions="Auto,Auto,*">
+                <TextBlock Text="Data Transaksi" FontWeight="SemiBold" Margin="0,0,0,8" />
+
+                <Grid Grid.Row="1" ColumnDefinitions="50,110,*,110,70,120" Background="#1F3A5F">
+                    <TextBlock Grid.Column="0" Text="No." Foreground="White" Margin="8,6" HorizontalAlignment="Center" />
+                    <TextBlock Grid.Column="1" Text="Kode Barang" Foreground="White" Margin="8,6" />
+                    <TextBlock Grid.Column="2" Text="Nama Barang" Foreground="White" Margin="8,6" />
+                    <TextBlock Grid.Column="3" Text="Harga Satuan" Foreground="White" Margin="8,6" HorizontalAlignment="Right" />
+                    <TextBlock Grid.Column="4" Text="Jumlah" Foreground="White" Margin="8,6" HorizontalAlignment="Right" />
+                    <TextBlock Grid.Column="5" Text="Total Harga" Foreground="White" Margin="8,6" HorizontalAlignment="Right" />
+                </Grid>
+
+                <ScrollViewer Grid.Row="2">
+                    <StackPanel x:Name="PanelItem" />
+                </ScrollViewer>
+            </Grid>
+        </Border>
+
+        <!-- Bagian bawah -->
+        <Border Grid.Row="3" Classes="card">
+            <Grid ColumnDefinitions="*,Auto">
+                <StackPanel Orientation="Horizontal" Spacing="16" VerticalAlignment="Center">
+                    <StackPanel>
+                        <TextBlock Classes="label" Text="Jumlah Item" />
+                        <TextBlock x:Name="LblJlhItem" Text="0" FontSize="32" FontWeight="Bold" Foreground="#1F3A5F" />
+                    </StackPanel>
+                    <Button x:Name="BtnNew" Content="New" Width="90" Click="BtnNew_Click" />
+                    <Button x:Name="BtnProses" Content="Proses" Classes="accent" Width="90" Click="BtnProses_Click" />
+                </StackPanel>
+
+                <Grid Grid.Column="1" RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="110,200" RowSpacing="8">
+                    <TextBlock Grid.Row="0" Classes="label" Text="Total Transaksi" />
+                    <TextBox Grid.Row="0" Grid.Column="1" x:Name="TxtTT" IsReadOnly="True" />
+                    <TextBlock Grid.Row="1" Classes="label" Text="Bayar" />
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="TxtB" KeyDown="TxtB_KeyDown" />
+                    <TextBlock Grid.Row="2" Classes="label" Text="Kembali" />
+                    <TextBox Grid.Row="2" Grid.Column="1" x:Name="TxtK" IsReadOnly="True" />
+                </Grid>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>

@@ -1,0 +1,48 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="TORA_SISFO_SWALAYAN.MainWindow"
+        Title="Swalayan Kita Semua"
+        WindowState="Maximized"
+        MinWidth="720" MinHeight="460"
+        RequestedThemeVariant="Light"
+        Background="#F4F6FA">
+
+    <DockPanel>
+
+        <Menu DockPanel.Dock="Top" Background="White">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Transaksi" Click="MenuTransaksi_Click" />
+                <Separator />
+                <MenuItem Header="_Data Barang" Click="MenuDataBarang_Click" />
+                <Separator />
+                <MenuItem Header="_Keluar" Click="MenuKeluar_Click" />
+            </MenuItem>
+            <MenuItem Header="_Info">
+                <MenuItem Header="_Hadiah Point Reward" Click="MenuPointReward_Click" />
+            </MenuItem>
+            <MenuItem Header="_Permainan">
+                <MenuItem Header="_Horoscop" Click="MenuHoroscop_Click" />
+            </MenuItem>
+            <MenuItem Header="_Bantuan">
+                <MenuItem Header="_Menjalankan Program" Click="MenuCaraJalan_Click" />
+                <Separator />
+                <MenuItem Header="_Tentang Program" Click="MenuTentang_Click" />
+            </MenuItem>
+        </Menu>
+
+        <Border DockPanel.Dock="Bottom" Background="#1F3A5F" Padding="14,8">
+            <TextBlock x:Name="TxtStatus" Text="Siap digunakan." Foreground="White" />
+        </Border>
+
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="8">
+            <TextBlock Text="🛒" FontSize="72" HorizontalAlignment="Center" />
+            <TextBlock Text="SWALAYAN KITA SEMUA" FontSize="36" FontWeight="Bold"
+                       Foreground="#1F3A5F" HorizontalAlignment="Center" />
+            <TextBlock Text="Sistem Informasi Swalayan" FontSize="16"
+                       Foreground="#6B7A90" HorizontalAlignment="Center" />
+            <TextBlock Text="Pilih menu di bagian atas untuk memulai" FontSize="13"
+                       Foreground="#9AA5B5" HorizontalAlignment="Center" Margin="0,16,0,0" />
+        </StackPanel>
+
+    </DockPanel>
+</Window>

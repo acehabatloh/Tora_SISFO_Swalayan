@@ -1,0 +1,37 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="TORA_SISFO_SWALAYAN.FrmLogin"
+        Title="Login"
+        Width="400" SizeToContent="Height"
+        CanResize="False"
+        WindowStartupLocation="CenterScreen"
+        RequestedThemeVariant="Light"
+        Background="#F4F6FA">
+
+    <Window.Styles>
+        <Style Selector="Button">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Height" Value="38" />
+        </Style>
+    </Window.Styles>
+
+    <Border Margin="20" Background="White" CornerRadius="12" Padding="28"
+            BoxShadow="0 1 4 0 #22000000">
+        <StackPanel Spacing="10">
+            <TextBlock Text="🔐" FontSize="52" HorizontalAlignment="Center" />
+            <TextBlock Text="Swalayan Kita Semua" FontSize="20" FontWeight="Bold"
+                       Foreground="#1F3A5F" HorizontalAlignment="Center" />
+            <TextBlock Text="Silakan login untuk melanjutkan" Foreground="#6B7A90"
+                       HorizontalAlignment="Center" Margin="0,0,0,10" />
+
+            <TextBlock Text="User ID" />
+            <TextBox x:Name="TxtID" KeyDown="TxtID_KeyDown" />
+
+            <TextBlock Text="Password" Margin="0,6,0,0" />
+            <TextBox x:Name="TxtPas" PasswordChar="*" KeyDown="TxtPas_KeyDown" />
+
+            <Button x:Name="BtnProses" Content="Proses" Classes="accent"
+                    HorizontalAlignment="Stretch" Margin="0,14,0,0" Click="BtnProses_Click" />
+        </StackPanel>
+    </Border>
+</Window>

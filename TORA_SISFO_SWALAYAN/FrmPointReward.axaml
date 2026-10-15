@@ -1,0 +1,42 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="TORA_SISFO_SWALAYAN.FrmPointReward"
+        Title="Info Hadiah Point Reward"
+        Width="480" SizeToContent="Height"
+        CanResize="False"
+        WindowStartupLocation="CenterOwner"
+        RequestedThemeVariant="Light"
+        Background="#F4F6FA">
+
+    <Window.Styles>
+        <Style Selector="Button">
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+            <Setter Property="Height" Value="36" />
+            <Setter Property="Padding" Value="16,0" />
+        </Style>
+    </Window.Styles>
+
+    <Border Margin="20" Background="White" CornerRadius="12" Padding="24"
+            BoxShadow="0 1 4 0 #22000000">
+        <StackPanel Spacing="14">
+            <TextBlock Text="🎁 Hadiah Point Reward" FontSize="22" FontWeight="Bold"
+                       Foreground="#1F3A5F" HorizontalAlignment="Center" />
+
+            <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="10">
+                <TextBlock Text="Jumlah Point Reward:" VerticalAlignment="Center" />
+                <TextBox Grid.Column="1" x:Name="TxtPoint" KeyDown="TxtPoint_KeyDown" />
+                <Button Grid.Column="2" x:Name="BtnCekHadiah" Content="Cek Hadiah"
+                        Classes="accent" Click="BtnCekHadiah_Click" />
+            </Grid>
+
+            <TextBlock x:Name="LblTeks" TextAlignment="Center" TextWrapping="Wrap" Foreground="#6B7A90" />
+            <TextBlock x:Name="LblHadiah" FontSize="22" FontWeight="Bold" TextAlignment="Center"
+                       TextWrapping="Wrap" Foreground="#1F3A5F" />
+
+            <Border Background="#F4F7FB" CornerRadius="8" Padding="14">
+                <TextBlock Foreground="#4A5568" LineHeight="22"
+                           Text="Tabel hadiah&#10;500 – 1000     :  Mug Cantik&#10;1001 – 1500   :  Boneka Cantik&#10;1501 – 2000   :  Kipas Angin&#10;2001 – 2500   :  Dispenser" />
+            </Border>
+        </StackPanel>
+    </Border>
+</Window>
